@@ -7,7 +7,6 @@ const index = require('./public/assets/js/index')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const dbPath = path.join(__dirname, 'db', 'db.json');
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));

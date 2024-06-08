@@ -1,12 +1,10 @@
-// routes.js
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 
-const dbPath = path.join(__dirname, '../../../db/db.json');
+const dbPath = path.join(__dirname, '../db/db.json');
 
-// GET all notes
 router.get('/notes', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
     if (err) {
@@ -19,7 +17,6 @@ router.get('/notes', (req, res) => {
   });
 });
 
-// POST a new note
 router.post('/notes', (req, res) => {
   const newNote = req.body;
   fs.readFile(dbPath, 'utf8', (err, data) => {
@@ -42,7 +39,6 @@ router.post('/notes', (req, res) => {
   });
 });
 
-// DELETE a note
 router.delete('/notes/:id', (req, res) => {
   const idToDelete = parseInt(req.params.id);
   fs.readFile(dbPath, 'utf8', (err, data) => {
